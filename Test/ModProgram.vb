@@ -7,7 +7,7 @@ Module ModProgram
     Public dbserver As String
     Public userServer As String
     Public passServer As String
-    Public typeServer As String
+    Public typeServer As String = ""
     Public xShowMain As Boolean
     Public xShowDialog As Boolean
     Public objCon As SqlClient.SqlConnection
@@ -35,6 +35,23 @@ Module ModProgram
         objDtAdapter.Fill(objDtSet)
         objDtTable = objDtSet.Tables(0)
         Return objDtTable
+    End Function
+    Public Function FormatAngkaNol(ByVal text As String, ByVal nol As Boolean) As String
+        Dim ret As String
+        If Not nol Then
+            If Val(text) = 0 Then
+                ret = ""
+            Else
+                ret = String.Format("{0:n0}", Double.Parse(text))
+            End If
+        Else
+            If Val(text) = 0 Then
+                ret = "0"
+            Else
+                ret = String.Format("{0:n0}", Double.Parse(text))
+            End If
+        End If
+        Return ret
     End Function
     Public Sub ExecuteSQLServer(ByVal mSQL0 As String, ByVal objC As SqlClient.SqlConnection)
         Dim objCommand As SqlClient.SqlCommand

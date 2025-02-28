@@ -17,7 +17,7 @@
         nameServer = txtNameServer.Text
         userServer = txtUsername.Text
         passServer = txtPassword.Text
-        typeServer = IIf(cekAuth.Checked, "1", "0")
+        typeServer = IIf(cekAuth.Checked = True, "1", "0")
         'authServer = IIf(cekAuth.Checked, "1", "0")
         'Stop
         'If cmbEngine.SelectedIndex = 0 Then
