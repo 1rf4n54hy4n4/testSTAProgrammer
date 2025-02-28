@@ -33,7 +33,22 @@ Public Class frmListKaryawan
         frmInput.ShowDialog()
         TampilData()
     End Sub
+    Private Sub TampilDataAll()
+        'Dim xFilter As String
 
+        'xFilter = "where ((nmKaryawan like '" & txtNmKar1.Text & "%') or (nmkaryawan like '" & txtNmKar2.Text & "%'))"
+        'xFilter += " and (usia >=" & CInt(FormatAngkaNol(txtUsia1.Text, True)) & " and usia <= " & CInt(FormatAngkaNol(txtUsia2.Text, True)) & ")"
+        'xFilter += " and (tglmasukkerja between '" & Format(dtTglKerjaIn1.EditValue, "MM/dd/yyyy") & "' and '" & Format(dtTglKerjaIn2.EditValue, "MM/dd/yyyy") & "')"
+        sq1 = "select idKaryawan,NmKaryawan,TglMasukKerja,Usia from karyawan  ORDER by nmkaryawan"
+        objDtTable = ExecuteQuerySQLServer(sq1, objCon)
+        If objDtTable.Rows.Count > 0 Then
+            GridControl1.DataSource = objDtTable
+        End If
+        GridView1.Columns(2).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        GridView1.Columns(2).AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        GridView1.Columns(2).DisplayFormat.FormatString = "dd-MMM-yyyy"
+        GridView1.BestFitColumns()
+    End Sub
     Private Sub btn_edit_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btn_edit.ItemClick
         mproses = "Edit"
         Dim frmInput As New frmKaryawan
@@ -78,5 +93,9 @@ Public Class frmListKaryawan
         End If
 
 
+    End Sub
+
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+        TampilDataAll()
     End Sub
 End Class

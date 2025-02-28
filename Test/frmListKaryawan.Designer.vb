@@ -61,6 +61,7 @@ Partial Class frmListKaryawan
         Me.Root = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
@@ -236,6 +237,7 @@ Partial Class frmListKaryawan
         'PanelControl1
         '
         Me.PanelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.PanelControl1.Controls.Add(Me.SimpleButton2)
         Me.PanelControl1.Controls.Add(Me.SimpleButton1)
         Me.PanelControl1.Controls.Add(Me.LabelControl5)
         Me.PanelControl1.Controls.Add(Me.LabelControl6)
@@ -469,6 +471,14 @@ Partial Class frmListKaryawan
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
         '
+        'SimpleButton2
+        '
+        Me.SimpleButton2.Location = New System.Drawing.Point(731, 83)
+        Me.SimpleButton2.Name = "SimpleButton2"
+        Me.SimpleButton2.Size = New System.Drawing.Size(207, 34)
+        Me.SimpleButton2.TabIndex = 15
+        Me.SimpleButton2.Text = "Show All"
+        '
         'frmListKaryawan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 19.0!)
@@ -546,4 +556,5 @@ Partial Class frmListKaryawan
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents dtTglKerjaIn1 As DevExpress.XtraEditors.DateEdit
     Friend WithEvents dtTglKerjaIn2 As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
 End Class
